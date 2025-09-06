@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Users, FileCheck } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { ArrowRight, Shield, Users, Calendar } from "lucide-react";
+import { ApplicationForm, BookCallDialog } from "@/components/ContactForms";
 import heroImage from "@/assets/hero-immigration.jpg";
 
 const HeroSection = () => {
@@ -26,15 +28,39 @@ const HeroSection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="lg" className="group">
-              Start Your Application
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button variant="hero" size="lg" className="group">
+                  Start Your Application
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+                <DialogHeader>
+                  <DialogTitle className="text-2xl font-bold text-center">
+                    Start Your Immigration Application
+                  </DialogTitle>
+                </DialogHeader>
+                <ApplicationForm />
+              </DialogContent>
+            </Dialog>
             
-            <Button variant="glass" size="lg" className="group">
-              Schedule Consultation
-              <Users className="w-5 h-5 group-hover:scale-110 transition-transform" />
-            </Button>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button variant="glass" size="lg" className="group">
+                  Book Your Call
+                  <Calendar className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-md">
+                <DialogHeader>
+                  <DialogTitle className="text-xl font-bold text-center">
+                    Schedule Your Free Consultation
+                  </DialogTitle>
+                </DialogHeader>
+                <BookCallDialog />
+              </DialogContent>
+            </Dialog>
           </div>
 
           {/* Stats */}
