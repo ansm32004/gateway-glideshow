@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
+import CountryScrollbar from "@/components/CountryScrollbar";
 import ServicesStack from "@/components/ServicesStack";
 import ProcessSteps from "@/components/ProcessSteps";
 import TestimonialsStack from "@/components/TestimonialsStack";
@@ -64,6 +65,8 @@ const Index = () => {
       <section id="home">
         <HeroSection />
       </section>
+      
+      <CountryScrollbar />
       
       <section id="services">
         <ServicesStack />
