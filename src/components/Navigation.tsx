@@ -20,10 +20,10 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
-              <span className="text-white font-bold text-lg">IM</span>
+              <span className="text-white font-bold text-lg">SI</span>
             </div>
             <span className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              ImmigrationPro
+              Southern Immigration
             </span>
           </div>
 
@@ -49,7 +49,7 @@ const Navigation = () => {
               </div>
               <div className="flex items-center space-x-1">
                 <Mail className="w-4 h-4" />
-                <span>info@immigrationpro.com</span>
+                <span>info@southernimmigration.com</span>
               </div>
             </div>
             <Button variant="hero" size="sm">

@@ -10,7 +10,7 @@ import Footer from "@/components/Footer";
 const Index = () => {
   useEffect(() => {
     // Set page title and meta description for SEO
-    document.title = "Expert Immigration Services | ImmigrationPro - Your Journey to Success";
+    document.title = "Southern Immigration - Expert Immigration Services | Your Journey to Success";
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
@@ -21,11 +21,11 @@ const Index = () => {
     const structuredData = {
       "@context": "https://schema.org",
       "@type": "LegalService",
-      "name": "ImmigrationPro",
+      "name": "Southern Immigration",
       "description": "Expert immigration services and legal consultation",
       "url": window.location.origin,
       "telephone": "+1-555-123-4567",
-      "email": "info@immigrationpro.com",
+      "email": "info@southernimmigration.com",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "123 Immigration Street",
