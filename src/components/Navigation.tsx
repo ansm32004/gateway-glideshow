@@ -4,63 +4,94 @@ import { Menu, X, Phone, Mail } from "lucide-react";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isContactOpen, setIsContactOpen] = useState(false);
 
   const navItems = [
     { name: "Services", href: "#services" },
     { name: "Process", href: "#process" },
     { name: "Success Stories", href: "#testimonials" },
     { name: "About", href: "/about" },
-    { name: "Contact", href: "#contact" }
   ];
 
   return (
-    <nav className="fixed top-4 left-4 right-4 z-50 bg-white/80 backdrop-blur-lg border border-border/50 rounded-full">
+    <nav className="fixed top-4 left-10 right-10 z-50 bg-white/80 backdrop-blur-lg border border-gray-300 rounded-full">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
-              <span className="text-white font-bold text-lg">SI</span>
+          {/* Navbar as 3 sections */}
+          <div className="flex w-full items-center justify-between">
+            {/* Left: Logo */}
+            <div className="flex items-center space-x-2">
+              <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
+                <span className="text-white font-bold text-lg">SI</span>
+              </div>
+              <span className="text-xl font-bold text-primary">
+                Southern Immigration
+              </span>
             </div>
-            <span className="text-xl font-bold text-primary">
-              Southern Immigration
-            </span>
-          </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <a 
-                key={item.name}
-                href={item.href}
-                className="text-foreground hover:text-primary transition-colors duration-300 font-medium"
+            {/* Center: Nav Links */}
+            <div className="hidden md:flex items-center space-x-8">
+              {navItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-foreground hover:text-primary transition-colors duration-300 font-medium"
+                >
+                  {item.name}
+                </a>
+              ))}
+
+              {/* Contact Dropdown */}
+              <div
+                className="relative"
+                onMouseEnter={() => setIsContactOpen(true)}
+                onMouseLeave={() => setIsContactOpen(false)}
               >
-                {item.name}
-              </a>
-            ))}
-          </div>
+                <button className="text-foreground hover:text-primary transition-colors duration-300 font-medium">
+                  Contact
+                </button>
+                {isContactOpen && (
+                  <div className="absolute top-8 right-0 bg-white border border-gray-200 shadow-md rounded-lg w-72">
+                    <a
+                      href="mailto:example@email.com"
+                      className="flex items-center px-4 py-3 hover:bg-gray-100 text-sm text-gray-700"
+                    >
+                      <Mail className="w-5 h-5 mr-3" /> Email: example@email.com
+                    </a>
+                    <a
+                      href="tel:+1234567890"
+                      className="flex items-center px-4 py-3 hover:bg-gray-100 text-sm text-gray-700"
+                    >
+                      <Phone className="w-5 h-5 mr-3" /> Phone: +1 234 567 890
+                    </a>
+                  </div>
+                )}
+              </div>
+            </div>
 
-          {/* Spacer for mobile button alignment */}
-          <div className="hidden lg:block"></div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </Button>
+            {/* Right: Mobile Menu Button */}
+            <div className="md:hidden">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                {isMenuOpen ? (
+                  <X className="w-6 h-6" />
+                ) : (
+                  <Menu className="w-6 h-6" />
+                )}
+              </Button>
+            </div>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border/50 bg-white/95 backdrop-blur-sm">
+          <div className="md:hidden py-4 border-t border-gray-300 bg-white/95 backdrop-blur-sm">
             <div className="space-y-4">
               {navItems.map((item) => (
-                <a 
+                <a
                   key={item.name}
                   href={item.href}
                   className="block py-2 text-foreground hover:text-primary transition-colors duration-300 font-medium"
@@ -69,6 +100,22 @@ const Navigation = () => {
                   {item.name}
                 </a>
               ))}
+
+              {/* Contact Section in mobile */}
+              <div className="space-y-3 mt-3 border-t pt-3">
+                <a
+                  href="mailto:example@email.com"
+                  className="flex items-center px-3 py-2 hover:bg-gray-100 text-sm text-gray-700 rounded-md"
+                >
+                  <Mail className="w-5 h-5 mr-3" /> Email: example@email.com
+                </a>
+                <a
+                  href="tel:+1234567890"
+                  className="flex items-center px-3 py-2 hover:bg-gray-100 text-sm text-gray-700 rounded-md"
+                >
+                  <Phone className="w-5 h-5 mr-3" /> Phone: +1 234 567 890
+                </a>
+              </div>
             </div>
           </div>
         )}
