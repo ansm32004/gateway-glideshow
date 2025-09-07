@@ -14,7 +14,7 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-4 left-4 right-4 z-50 bg-white/80 backdrop-blur-lg border border-border/50 rounded-2xl">
+    <nav className="fixed top-4 left-4 right-4 z-50 bg-white/80 backdrop-blur-lg border border-border/50 rounded-full">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -40,19 +40,8 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Contact Info */}
-          <div className="hidden lg:flex items-center space-x-4">
-            <div className="flex items-center space-x-4 text-sm text-muted-foreground">
-              <div className="flex items-center space-x-1">
-                <Phone className="w-4 h-4" />
-                <span>+1 (555) 123-4567</span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <Mail className="w-4 h-4" />
-                <span>info@southernimmigration.com</span>
-              </div>
-            </div>
-          </div>
+          {/* Spacer for mobile button alignment */}
+          <div className="hidden lg:block"></div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">

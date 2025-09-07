@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Users, Award, Clock, Globe, Heart, Scale } from "lucide-react";
+import { Users, Award, Clock, Globe, Heart, Scale, ArrowLeft, Home } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const About = () => {
   useEffect(() => {
@@ -48,6 +49,19 @@ const About = () => {
       <Navigation />
       
       <main className="pt-20">
+        {/* Back to Home Arrow */}
+        <div className="container mx-auto px-6 lg:px-8 pt-4">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => window.location.href = '/'}
+            className="flex items-center gap-2 hover:text-primary"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to Home
+          </Button>
+        </div>
+
         {/* Hero Section */}
         <section className="py-20 bg-gradient-to-b from-muted/50 to-background">
           <div className="container mx-auto px-6 lg:px-8">
@@ -165,6 +179,20 @@ const About = () => {
                 </p>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Back to Home Button */}
+        <section className="py-12">
+          <div className="container mx-auto px-6 lg:px-8 text-center">
+            <Button
+              size="lg"
+              onClick={() => window.location.href = '/'}
+              className="flex items-center gap-2 mx-auto"
+            >
+              <Home className="w-5 h-5" />
+              Back to Home
+            </Button>
           </div>
         </section>
       </main>

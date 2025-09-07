@@ -25,7 +25,7 @@ const countries = [
 ];
 
 const CountryScrollbar = () => {
-  const autoplay = Autoplay({ delay: 2000, stopOnInteraction: true });
+  const autoplay = Autoplay({ delay: 1000, stopOnInteraction: false });
 
   return (
     <section id="countries" className="py-20 bg-gradient-to-b from-muted/30 to-background">

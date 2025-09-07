@@ -9,11 +9,6 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/5 via-background to-secondary/5">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="text-center space-y-8 slide-up max-w-4xl mx-auto">
-          <div className="inline-flex items-center px-4 py-2 bg-primary/10 rounded-full text-primary font-medium text-sm">
-            <Shield className="w-4 h-4 mr-2" />
-            Trusted Southern Immigration Partners
-          </div>
-          
           <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
             Your Journey to a
             <span className="text-primary">

@@ -2,32 +2,28 @@ import { CheckCircle, Circle, ArrowDown } from "lucide-react";
 
 const steps = [
   {
-    number: "01",
+    number: "1",
     title: "Initial Consultation",
     description: "Free assessment of your case and eligibility review",
-    details: ["Case evaluation", "Document checklist", "Timeline planning", "Cost estimation"],
-    status: "completed"
+    details: ["Case evaluation", "Document checklist", "Timeline planning", "Cost estimation"]
   },
   {
-    number: "02", 
+    number: "2", 
     title: "Documentation",
     description: "Comprehensive preparation of all required documents",
-    details: ["Form completion", "Document collection", "Translation services", "Legal review"],
-    status: "completed"
+    details: ["Form completion", "Document collection", "Translation services", "Legal review"]
   },
   {
-    number: "03",
+    number: "3",
     title: "Application Submission",
     description: "Professional submission with ongoing status monitoring",
-    details: ["Application filing", "Fee payment", "Confirmation receipt", "Case tracking"],
-    status: "active"
+    details: ["Application filing", "Fee payment", "Confirmation receipt", "Case tracking"]
   },
   {
-    number: "04",
+    number: "4",
     title: "Follow-up & Support",
     description: "Continuous support until your case is approved",
-    details: ["Status updates", "Interview preparation", "Additional documents", "Final approval"],
-    status: "pending"
+    details: ["Status updates", "Interview preparation", "Additional documents", "Final approval"]
   }
 ];
 
@@ -38,7 +34,7 @@ const ProcessSteps = () => {
         <div className="text-center mb-16 slide-up">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
             Simple
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <span className="text-primary">
               {" "}4-Step Process
             </span>
           </h2>
@@ -57,41 +53,20 @@ const ProcessSteps = () => {
               )}
 
               <div className={`relative flex items-start space-x-8 mb-12 slide-up stagger-${index + 1}`}>
-                {/* Step number and status */}
+                {/* Step number */}
                 <div className="flex-shrink-0 relative z-10">
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg transition-all duration-500 ${
-                    step.status === 'completed' 
-                      ? 'bg-secondary text-white' 
-                      : step.status === 'active'
-                      ? 'bg-primary text-white pulse-glow'
-                      : 'bg-muted text-muted-foreground'
-                  }`}>
-                    {step.status === 'completed' ? (
-                      <CheckCircle className="w-6 h-6" />
-                    ) : (
-                      step.number
-                    )}
+                  <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg">
+                    {step.number}
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="flex-1 group">
-                  <div className={`bg-card rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 card-stack border border-border/50 ${
-                    step.status === 'active' ? 'border-primary/50 bg-primary/5' : 'hover:border-primary/20'
-                  }`}>
-                    <div className="flex items-start justify-between mb-4">
+                  <div className="bg-card rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 card-stack border border-border/50 hover:border-primary/20">
+                    <div className="mb-4">
                       <h3 className="text-2xl font-bold group-hover:text-primary transition-colors duration-300">
                         {step.title}
                       </h3>
-                      <div className={`px-3 py-1 rounded-full text-xs font-medium ${
-                        step.status === 'completed' 
-                          ? 'bg-secondary/20 text-secondary' 
-                          : step.status === 'active'
-                          ? 'bg-primary/20 text-primary'
-                          : 'bg-muted text-muted-foreground'
-                      }`}>
-                        {step.status === 'completed' ? 'Completed' : step.status === 'active' ? 'In Progress' : 'Upcoming'}
-                      </div>
                     </div>
 
                     <p className="text-muted-foreground mb-6 text-lg">
@@ -101,11 +76,7 @@ const ProcessSteps = () => {
                     <div className="grid sm:grid-cols-2 gap-4">
                       {step.details.map((detail, detailIndex) => (
                         <div key={detailIndex} className="flex items-center space-x-3">
-                          <Circle className={`w-2 h-2 ${
-                            step.status === 'completed' ? 'text-secondary fill-current' :
-                            step.status === 'active' ? 'text-primary fill-current' :
-                            'text-muted-foreground'
-                          }`} />
+                          <Circle className="w-2 h-2 text-primary fill-current" />
                           <span className="text-sm">{detail}</span>
                         </div>
                       ))}

@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BookOpen, Users, FileText, Scale, Globe, Heart } from "lucide-react";
+import ServiceForm from "./ServiceForm";
 
 const services = [
   {
@@ -53,6 +55,14 @@ const services = [
 ];
 
 const ServicesStack = () => {
+  const [selectedService, setSelectedService] = useState<any>(null);
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
+  const handleLearnMore = (service: any) => {
+    setSelectedService(service);
+    setIsFormOpen(true);
+  };
+
   return (
     <section className="py-24 bg-gradient-to-b from-background to-muted/30">
       <div className="container mx-auto px-6 lg:px-8">
@@ -106,6 +116,7 @@ const ServicesStack = () => {
                 <Button 
                   variant="outline" 
                   className="w-full group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-all duration-300"
+                  onClick={() => handleLearnMore(service)}
                 >
                   Learn More
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
@@ -117,6 +128,16 @@ const ServicesStack = () => {
             </div>
           ))}
         </div>
+
+        {/* Service Form Dialog */}
+        {selectedService && (
+          <ServiceForm
+            isOpen={isFormOpen}
+            onClose={() => setIsFormOpen(false)}
+            serviceTitle={selectedService.title}
+            serviceOptions={selectedService.features}
+          />
+        )}
 
       </div>
     </section>
