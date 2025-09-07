@@ -59,7 +59,7 @@ const Index = () => {
   }, []);
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen pt-4">
       <Navigation />
       
       <section id="home">

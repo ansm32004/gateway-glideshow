@@ -59,7 +59,7 @@ const TestimonialsStack = () => {
         <div className="text-center mb-16 slide-up">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
             Success
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <span className="text-primary">
               {" "}Stories
             </span>
           </h2>

@@ -1,4 +1,10 @@
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { useEffect } from "react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const countries = [
   { name: "United States", flag: "🇺🇸", code: "US" },
@@ -19,39 +25,39 @@ const countries = [
 ];
 
 const CountryScrollbar = () => {
+  const autoplay = Autoplay({ delay: 2000, stopOnInteraction: true });
+
   return (
-    <div className="py-12 bg-muted/20">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-8">
-          <h3 className="text-2xl font-semibold text-foreground mb-2">
-            Countries We Serve
-          </h3>
-          <p className="text-muted-foreground">
-            We help clients immigrate to these destinations worldwide
+    <section id="countries" className="py-20 bg-gradient-to-b from-muted/30 to-background">
+      <div className="container mx-auto px-6 lg:px-8">
+        <div className="text-center mb-12 slide-up">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4">Countries We Serve</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            We have extensive experience helping clients immigrate to these popular destinations
           </p>
         </div>
         
-        <ScrollArea className="w-full whitespace-nowrap rounded-lg">
-          <div className="flex space-x-4 pb-4">
-            {countries.map((country) => (
-              <div
-                key={country.code}
-                className="flex-shrink-0 group cursor-pointer"
-              >
-                <div className="flex flex-col items-center p-4 bg-card hover:bg-primary/5 rounded-xl transition-all duration-300 border border-border/50 hover:border-primary/20 hover:shadow-md min-w-[120px]">
-                  <div className="text-3xl mb-2 group-hover:scale-110 transition-transform duration-300">
-                    {country.flag}
-                  </div>
-                  <div className="text-sm font-medium text-center leading-tight">
-                    {country.name}
-                  </div>
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          plugins={[autoplay]}
+          className="w-full"
+        >
+          <CarouselContent className="-ml-2 md:-ml-4">
+            {countries.map((country, index) => (
+              <CarouselItem key={index} className="pl-2 md:pl-4 basis-auto">
+                <div className="flex flex-col items-center p-6 bg-card rounded-2xl shadow-sm border border-border/50 hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer min-w-[200px]">
+                  <div className="text-6xl mb-4">{country.flag}</div>
+                  <h3 className="font-semibold text-center text-foreground">{country.name}</h3>
                 </div>
-              </div>
+              </CarouselItem>
             ))}
-          </div>
-        </ScrollArea>
+          </CarouselContent>
+        </Carousel>
       </div>
-    </div>
+    </section>
   );
 };
 

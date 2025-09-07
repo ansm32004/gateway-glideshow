@@ -59,7 +59,7 @@ const ServicesStack = () => {
         <div className="text-center mb-16 slide-up">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
             Comprehensive Immigration
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <span className="text-primary">
               {" "}Services
             </span>
           </h2>
@@ -118,13 +118,6 @@ const ServicesStack = () => {
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-16 slide-up stagger-2">
-          <Button variant="cta" size="lg" className="group">
-            Get Started with Free Consultation
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
-        </div>
       </div>
     </section>
   );

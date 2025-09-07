@@ -9,12 +9,12 @@ const Navigation = () => {
     { name: "Services", href: "#services" },
     { name: "Process", href: "#process" },
     { name: "Success Stories", href: "#testimonials" },
-    { name: "About", href: "#about" },
+    { name: "About", href: "/about" },
     { name: "Contact", href: "#contact" }
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-lg border-b border-border/50">
+    <nav className="fixed top-4 left-4 right-4 z-50 bg-white/80 backdrop-blur-lg border border-border/50 rounded-2xl">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -22,7 +22,7 @@ const Navigation = () => {
             <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
               <span className="text-white font-bold text-lg">SI</span>
             </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <span className="text-xl font-bold text-primary">
               Southern Immigration
             </span>
           </div>
@@ -40,7 +40,7 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Contact Info & CTA */}
+          {/* Contact Info */}
           <div className="hidden lg:flex items-center space-x-4">
             <div className="flex items-center space-x-4 text-sm text-muted-foreground">
               <div className="flex items-center space-x-1">
@@ -52,9 +52,6 @@ const Navigation = () => {
                 <span>info@southernimmigration.com</span>
               </div>
             </div>
-            <Button variant="hero" size="sm">
-              Free Consultation
-            </Button>
           </div>
 
           {/* Mobile menu button */}
@@ -83,11 +80,6 @@ const Navigation = () => {
                   {item.name}
                 </a>
               ))}
-              <div className="pt-4 border-t border-border/50">
-                <Button variant="hero" className="w-full">
-                  Free Consultation
-                </Button>
-              </div>
             </div>
           </div>
         )}
