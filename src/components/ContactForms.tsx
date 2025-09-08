@@ -23,7 +23,7 @@ const ApplicationForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
+    
     try {
       const { error } = await supabase
         .from('form_submissions')
@@ -39,8 +39,8 @@ const ApplicationForm = () => {
       if (error) throw error;
 
       toast({
-        title: "Application Submitted!",
-        description: "Thank you! We'll contact you soon regarding your application.",
+        title: "Application submitted successfully!",
+        description: "We'll contact you soon to discuss your immigration needs.",
       });
 
       setFormData({
@@ -52,8 +52,8 @@ const ApplicationForm = () => {
       });
     } catch (error) {
       toast({
-        title: "Submission Failed",
-        description: "There was an error submitting your application. Please try again.",
+        title: "Submission failed",
+        description: "Please try again or contact us directly.",
         variant: "destructive",
       });
     } finally {
@@ -165,7 +165,7 @@ const BookCallDialog = () => {
   const handleCallSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
+    
     try {
       const { error } = await supabase
         .from('form_submissions')
@@ -180,8 +180,8 @@ const BookCallDialog = () => {
       if (error) throw error;
 
       toast({
-        title: "Call Booked!",
-        description: "Thank you! We'll contact you to schedule your consultation call.",
+        title: "Call booking submitted!",
+        description: "We'll contact you soon to schedule your consultation.",
       });
 
       setCallFormData({
@@ -192,8 +192,8 @@ const BookCallDialog = () => {
       });
     } catch (error) {
       toast({
-        title: "Booking Failed",
-        description: "There was an error booking your call. Please try again.",
+        title: "Booking failed",
+        description: "Please try again or contact us directly.",
         variant: "destructive",
       });
     } finally {

@@ -27,7 +27,7 @@ const ServiceForm = ({ isOpen, onClose, serviceTitle, serviceOptions }: ServiceF
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
+    
     try {
       const { error } = await supabase
         .from('form_submissions')
@@ -42,8 +42,8 @@ const ServiceForm = ({ isOpen, onClose, serviceTitle, serviceOptions }: ServiceF
       if (error) throw error;
 
       toast({
-        title: "Inquiry Submitted!",
-        description: `Thank you! We'll contact you soon regarding your ${serviceTitle} inquiry.`,
+        title: "Inquiry submitted successfully!",
+        description: `We'll contact you soon regarding your ${serviceTitle} inquiry.`,
       });
 
       setFormData({
@@ -55,8 +55,8 @@ const ServiceForm = ({ isOpen, onClose, serviceTitle, serviceOptions }: ServiceF
       onClose();
     } catch (error) {
       toast({
-        title: "Submission Failed",
-        description: "There was an error submitting your inquiry. Please try again.",
+        title: "Submission failed",
+        description: "Please try again or contact us directly.",
         variant: "destructive",
       });
     } finally {
