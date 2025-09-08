@@ -4,6 +4,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 interface ServiceFormProps {
   isOpen: boolean;
@@ -19,21 +21,47 @@ const ServiceForm = ({ isOpen, onClose, serviceTitle, serviceOptions }: ServiceF
     phone: "",
     serviceType: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Service form submission:", {
-      service: serviceTitle,
-      ...formData
-    });
-    alert("Thank you! We'll contact you soon regarding your " + serviceTitle + " inquiry.");
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      serviceType: ""
-    });
-    onClose();
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase
+        .from('form_submissions')
+        .insert({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service_type: `${serviceTitle} - ${formData.serviceType}`,
+          form_type: 'service_inquiry'
+        });
+
+      if (error) throw error;
+
+      toast({
+        title: "Inquiry Submitted!",
+        description: `Thank you! We'll contact you soon regarding your ${serviceTitle} inquiry.`,
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        serviceType: ""
+      });
+      onClose();
+    } catch (error) {
+      toast({
+        title: "Submission Failed",
+        description: "There was an error submitting your inquiry. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
@@ -104,8 +132,8 @@ const ServiceForm = ({ isOpen, onClose, serviceTitle, serviceOptions }: ServiceF
             </Select>
           </div>
 
-          <Button type="submit" className="w-full">
-            Submit Application
+          <Button type="submit" className="w-full" disabled={isSubmitting}>
+            {isSubmitting ? "Submitting..." : "Submit Application"}
           </Button>
         </form>
       </DialogContent>

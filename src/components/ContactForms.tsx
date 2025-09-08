@@ -6,6 +6,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { ArrowRight, Calendar, User, Phone, Mail, FileText } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 const ApplicationForm = () => {
   const [formData, setFormData] = useState({
@@ -15,12 +17,48 @@ const ApplicationForm = () => {
     serviceType: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission will be connected once Supabase is integrated
-    console.log("Form submitted:", formData);
-    alert("Thank you! Your application has been submitted. We'll contact you soon.");
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase
+        .from('form_submissions')
+        .insert({
+          name: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          service_type: formData.serviceType,
+          message: formData.message,
+          form_type: 'application'
+        });
+
+      if (error) throw error;
+
+      toast({
+        title: "Application Submitted!",
+        description: "Thank you! We'll contact you soon regarding your application.",
+      });
+
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        serviceType: "",
+        message: ""
+      });
+    } catch (error) {
+      toast({
+        title: "Submission Failed",
+        description: "There was an error submitting your application. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -106,8 +144,8 @@ const ApplicationForm = () => {
         />
       </div>
 
-      <Button type="submit" variant="hero" size="lg" className="w-full group">
-        Submit Application
+      <Button type="submit" variant="hero" size="lg" className="w-full group" disabled={isSubmitting}>
+        {isSubmitting ? "Submitting..." : "Submit Application"}
         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
       </Button>
     </form>
@@ -121,12 +159,46 @@ const BookCallDialog = () => {
     phone: "",
     preferredTime: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
-  const handleCallSubmit = (e: React.FormEvent) => {
+  const handleCallSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Call booking will be connected once Supabase is integrated
-    console.log("Call booking submitted:", callFormData);
-    alert("Thank you! We'll contact you to schedule your consultation call.");
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase
+        .from('form_submissions')
+        .insert({
+          name: callFormData.name,
+          email: callFormData.email,
+          phone: callFormData.phone,
+          preferred_time: callFormData.preferredTime,
+          form_type: 'call_booking'
+        });
+
+      if (error) throw error;
+
+      toast({
+        title: "Call Booked!",
+        description: "Thank you! We'll contact you to schedule your consultation call.",
+      });
+
+      setCallFormData({
+        name: "",
+        email: "",
+        phone: "",
+        preferredTime: ""
+      });
+    } catch (error) {
+      toast({
+        title: "Booking Failed",
+        description: "There was an error booking your call. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -180,8 +252,8 @@ const BookCallDialog = () => {
         </Select>
       </div>
 
-      <Button type="submit" variant="hero" className="w-full">
-        Book Your Call
+      <Button type="submit" variant="hero" className="w-full" disabled={isSubmitting}>
+        {isSubmitting ? "Booking..." : "Book Your Call"}
       </Button>
     </form>
   );
