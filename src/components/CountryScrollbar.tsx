@@ -28,19 +28,22 @@ export default function CountryScrollbar() {
             className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/6"
           >
             <div className="flex flex-col items-center justify-center h-40 bg-white border rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-              {code !== "eu" ? (
+              
+             {/* Flag container with fixed ratio */}
+              <div className="w-14 h-10 flex items-center justify-center bg-white">
                 <img
-                  src={`https://flagcdn.com/${code}.svg`}
+                  src={
+                    code !== "eu"
+                      ? `https://flagcdn.com/${code}.svg`
+                      : "https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg"
+                  }
                   alt={name}
-                  className="w-12 h-12 rounded"
+                  className="w-full h-full object-cover"
                 />
-              ) : (
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg"
-                  alt="Schengen"
-                  className="w-12 h-12 rounded"
-                />
-              )}
+              </div>
+
+
+
               <span className="mt-3 font-semibold">{name}</span>
             </div>
           </CarouselItem>
@@ -49,3 +52,4 @@ export default function CountryScrollbar() {
     </Carousel>
   )
 }
+

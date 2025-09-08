@@ -101,7 +101,7 @@ const TestimonialsStack = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-3xl" />
             <div className="absolute -bottom-6 -left-6 bg-white/95 backdrop-blur-sm p-6 rounded-2xl shadow-xl card-stack">
               <div className="text-center">
-                <div className="text-3xl font-bold text-secondary mb-1">10,000+</div>
+                <div className="text-3xl font-bold text-secondary mb-1">1,000+</div>
                 <div className="text-sm text-muted-foreground">Dreams Fulfilled</div>
               </div>
             </div>
@@ -125,7 +125,7 @@ const TestimonialsStack = () => {
                 <div className="text-sm text-muted-foreground">Approval Rate</div>
               </div>
               <div className="text-center p-6 bg-card rounded-2xl shadow-lg card-stack">
-                <div className="text-4xl font-bold text-secondary mb-2">15+</div>
+                <div className="text-4xl font-bold text-secondary mb-2">3+</div>
                 <div className="text-sm text-muted-foreground">Years Experience</div>
               </div>
               <div className="text-center p-6 bg-card rounded-2xl shadow-lg card-stack">

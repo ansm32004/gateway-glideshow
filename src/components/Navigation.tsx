@@ -17,17 +17,9 @@ const Navigation = () => {
     <nav className="fixed top-4 left-10 right-10 z-50 bg-white/80 backdrop-blur-lg border border-gray-300 rounded-full">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Navbar as 3 sections */}
           <div className="flex w-full items-center justify-between">
-            {/* Left: Logo */}
-            <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold text-lg">SI</span>
-              </div>
-              <span className="text-xl font-bold text-primary">
-                Southern Immigration
-              </span>
-            </div>
+            {/* Left side intentionally left blank (logo moved to Hero) */}
+            <div></div>
 
             {/* Center: Nav Links */}
             <div className="hidden md:flex items-center space-x-8">
@@ -125,3 +117,4 @@ const Navigation = () => {
 };
 
 export default Navigation;
+
