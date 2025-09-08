@@ -151,23 +151,28 @@ Carousel.displayName = "Carousel"
 const CarouselContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => {
-  const { carouselRef, orientation } = useCarousel()
+>(({ className, children, ...props }, ref) => {
+  const { orientation, carouselRef } = useCarousel() // ✅ use carouselRef here
 
   return (
-    <div ref={carouselRef} className="overflow-hidden">
+    <div className="overflow-hidden" ref={carouselRef}> {/* ✅ attach ref */}
       <div
         ref={ref}
         className={cn(
-          "flex",
-          orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col",
+          "flex animate-marquee",
+          orientation === "horizontal" ? "gap-4" : "flex-col gap-4",
           className
         )}
         {...props}
-      />
+      >
+        {children}
+        {children} {/* 👈 duplicate items for seamless loop */}
+      </div>
     </div>
   )
 })
+
+
 CarouselContent.displayName = "CarouselContent"
 
 const CarouselItem = React.forwardRef<

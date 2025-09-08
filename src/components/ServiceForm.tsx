@@ -2,10 +2,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { X } from "lucide-react";
 
 interface ServiceFormProps {
   isOpen: boolean;
@@ -19,10 +17,7 @@ const ServiceForm = ({ isOpen, onClose, serviceTitle, serviceOptions }: ServiceF
     name: "",
     email: "",
     phone: "",
-    serviceType: "",
-    experience: "",
-    education: "",
-    message: ""
+    serviceType: ""
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -36,10 +31,7 @@ const ServiceForm = ({ isOpen, onClose, serviceTitle, serviceOptions }: ServiceF
       name: "",
       email: "",
       phone: "",
-      serviceType: "",
-      experience: "",
-      education: "",
-      message: ""
+      serviceType: ""
     });
     onClose();
   };
@@ -51,13 +43,10 @@ const ServiceForm = ({ isOpen, onClose, serviceTitle, serviceOptions }: ServiceF
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto">
-        <DialogHeader className="flex flex-row items-center justify-between">
+        <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-primary">
             {serviceTitle} Application
           </DialogTitle>
-          <Button variant="ghost" size="icon" onClick={onClose}>
-            <X className="h-4 w-4" />
-          </Button>
         </DialogHeader>
         
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -113,39 +102,6 @@ const ServiceForm = ({ isOpen, onClose, serviceTitle, serviceOptions }: ServiceF
                 ))}
               </SelectContent>
             </Select>
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="experience">Work Experience</Label>
-            <Textarea
-              id="experience"
-              value={formData.experience}
-              onChange={(e) => handleInputChange("experience", e.target.value)}
-              placeholder="Describe your work experience (years, field, positions)"
-              rows={3}
-            />
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="education">Education Background</Label>
-            <Textarea
-              id="education"
-              value={formData.education}
-              onChange={(e) => handleInputChange("education", e.target.value)}
-              placeholder="Describe your education (degrees, institutions, certifications)"
-              rows={3}
-            />
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="message">Additional Information</Label>
-            <Textarea
-              id="message"
-              value={formData.message}
-              onChange={(e) => handleInputChange("message", e.target.value)}
-              placeholder="Tell us more about your situation, goals, or specific questions"
-              rows={4}
-            />
           </div>
 
           <Button type="submit" className="w-full">

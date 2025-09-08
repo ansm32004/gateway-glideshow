@@ -1,19 +1,26 @@
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { ArrowRight, Shield, Users, Calendar } from "lucide-react";
+import { ArrowRight, Calendar } from "lucide-react";
 import { ApplicationForm, BookCallDialog } from "@/components/ContactForms";
-import heroImage from "@/assets/hero-immigration.jpg";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/5 via-background to-secondary/5">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="text-center space-y-8 slide-up max-w-4xl mx-auto">
+          
+          {/* ✅ Logo */}
+          <div className="flex justify-center">
+            <img
+              src="/logo.png" // ✅ works because logo.png is inside "public"
+              alt="Southern Immigration Logo"
+              className="h-24 w-auto object-contain"
+            />
+          </div>
+
           <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
             Your Journey to a
-            <span className="text-primary">
-              {" "}New Future{" "}
-            </span>
+            <span className="text-primary"> New Future </span>
             Starts Here
           </h1>
           
@@ -61,7 +68,7 @@ const HeroSection = () => {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-8 pt-12 max-w-lg mx-auto">
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary">10K+</div>
+              <div className="text-3xl font-bold text-primary">1K+</div>
               <div className="text-sm text-muted-foreground">Cases Approved</div>
             </div>
             <div className="text-center">
@@ -69,7 +76,7 @@ const HeroSection = () => {
               <div className="text-sm text-muted-foreground">Success Rate</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-accent">15+</div>
+              <div className="text-3xl font-bold text-accent">3+</div>
               <div className="text-sm text-muted-foreground">Years Experience</div>
             </div>
           </div>
@@ -80,3 +87,5 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
+
