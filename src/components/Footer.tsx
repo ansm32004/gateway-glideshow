@@ -25,15 +25,15 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-muted-foreground">
                 <MapPin className="w-5 h-5 text-primary" />
-                <span>123 Immigration Street, Legal District, NY 10001</span>
+                <span>101 H Block, First floor Near H block Diggi, Sriganganagar, Rajasthan</span>
               </div>
               <div className="flex items-center space-x-3 text-muted-foreground">
                 <Phone className="w-5 h-5 text-primary" />
-                <span>+1 (555) 123-4567</span>
+                <span>+91 90888-04848</span>
               </div>
               <div className="flex items-center space-x-3 text-muted-foreground">
                 <Mail className="w-5 h-5 text-primary" />
-                <span>info@immigrationpro.com</span>
+                <span>southernimmigration.sgnr@gmail.com</span>
               </div>
             </div>
 

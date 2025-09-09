@@ -10,11 +10,11 @@ const HeroSection = () => {
         <div className="text-center space-y-8 slide-up max-w-4xl mx-auto">
           
           {/* ✅ Logo */}
-          <div className="flex justify-center">
+          <div className="flex justify-center mb-6">
             <img
-              src="/logo.png" // ✅ works because logo.png is inside "public"
+              src="/southern-immigration-logo.png"
               alt="Southern Immigration Logo"
-              className="h-24 w-auto object-contain"
+              className="h-20 w-auto object-contain"
             />
           </div>
 

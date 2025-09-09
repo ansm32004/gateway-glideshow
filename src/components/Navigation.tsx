@@ -16,7 +16,7 @@ const Navigation = () => {
   return (
     <nav className="fixed top-4 left-10 right-10 z-50 bg-white/80 backdrop-blur-lg border border-gray-300 rounded-full">
       <div className="container mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-12">
           <div className="flex w-full items-center justify-between">
             {/* Left side intentionally left blank (logo moved to Hero) */}
             <div></div>
@@ -45,16 +45,16 @@ const Navigation = () => {
                 {isContactOpen && (
                   <div className="absolute top-8 right-0 bg-white border border-gray-200 shadow-md rounded-lg w-72">
                     <a
-                      href="mailto:example@email.com"
+                      href="mailto:southernimmigration.sgnr@gmail.com"
                       className="flex items-center px-4 py-3 hover:bg-gray-100 text-sm text-gray-700"
                     >
-                      <Mail className="w-5 h-5 mr-3" /> Email: example@email.com
+                      <Mail className="w-5 h-5 mr-3" /> Email: southernimmigration.sgnr@gmail.com
                     </a>
                     <a
-                      href="tel:+1234567890"
+                      href="tel:+919088804848"
                       className="flex items-center px-4 py-3 hover:bg-gray-100 text-sm text-gray-700"
                     >
-                      <Phone className="w-5 h-5 mr-3" /> Phone: +1 234 567 890
+                      <Phone className="w-5 h-5 mr-3" /> Phone: +91 90888-04848
                     </a>
                   </div>
                 )}
@@ -96,16 +96,16 @@ const Navigation = () => {
               {/* Contact Section in mobile */}
               <div className="space-y-3 mt-3 border-t pt-3">
                 <a
-                  href="mailto:example@email.com"
+                  href="mailto:southernimmigration.sgnr@gmail.com"
                   className="flex items-center px-3 py-2 hover:bg-gray-100 text-sm text-gray-700 rounded-md"
                 >
-                  <Mail className="w-5 h-5 mr-3" /> Email: example@email.com
+                  <Mail className="w-5 h-5 mr-3" /> Email: southernimmigration.sgnr@gmail.com
                 </a>
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+919088804848"
                   className="flex items-center px-3 py-2 hover:bg-gray-100 text-sm text-gray-700 rounded-md"
                 >
-                  <Phone className="w-5 h-5 mr-3" /> Phone: +1 234 567 890
+                  <Phone className="w-5 h-5 mr-3" /> Phone: +91 90888-04848
                 </a>
               </div>
             </div>
