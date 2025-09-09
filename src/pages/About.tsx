@@ -4,62 +4,56 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Users, Award, Clock, Globe, Heart, Scale, ArrowLeft, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
 const About = () => {
   const navigate = useNavigate();
-  
   useEffect(() => {
     document.title = "About Us - Southern Immigration | Expert Immigration Services";
-    
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', 'Learn about Southern Immigration\'s experienced team, our mission, and commitment to providing exceptional immigration services with proven results.');
     }
   }, []);
-
-  const stats = [
-    { number: "3+", label: "Years Experience", icon: Clock },
-    { number: "98%", label: "Success Rate", icon: Award },
-    { number: "1000+", label: "Cases Approved", icon: Users },
-    { number: "50+", label: "Countries Served", icon: Globe }
-  ];
-
-  const values = [
-    {
-      icon: Heart,
-      title: "Compassionate Service",
-      description: "We understand that immigration is a deeply personal journey. Our team provides empathetic support every step of the way."
-    },
-    {
-      icon: Scale,
-      title: "Legal Excellence",
-      description: "Our experienced legal professionals stay current with immigration laws to provide the most effective representation."
-    },
-    {
-      icon: Users,
-      title: "Personalized Approach",
-      description: "Every case is unique. We tailor our services to meet your specific needs and circumstances."
-    },
-    {
-      icon: Globe,
-      title: "Global Reach",
-      description: "With experience across multiple countries and visa types, we have the expertise to handle complex international cases."
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-background pt-4">
+  const stats = [{
+    number: "3+",
+    label: "Years Experience",
+    icon: Clock
+  }, {
+    number: "98%",
+    label: "Success Rate",
+    icon: Award
+  }, {
+    number: "1000+",
+    label: "Cases Approved",
+    icon: Users
+  }, {
+    number: "50+",
+    label: "Countries Served",
+    icon: Globe
+  }];
+  const values = [{
+    icon: Heart,
+    title: "Compassionate Service",
+    description: "We understand that immigration is a deeply personal journey. Our team provides empathetic support every step of the way."
+  }, {
+    icon: Scale,
+    title: "Legal Excellence",
+    description: "Our experienced legal professionals stay current with immigration laws to provide the most effective representation."
+  }, {
+    icon: Users,
+    title: "Personalized Approach",
+    description: "Every case is unique. We tailor our services to meet your specific needs and circumstances."
+  }, {
+    icon: Globe,
+    title: "Global Reach",
+    description: "With experience across multiple countries and visa types, we have the expertise to handle complex international cases."
+  }];
+  return <div className="min-h-screen bg-background pt-4">
       <Navigation />
       
       <main className="pt-20">
         {/* Back to Home Arrow */}
         <div className="container mx-auto px-6 lg:px-8 pt-4">
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => navigate('/')}
-            className="flex items-center gap-2 hover:text-primary"
-          >
+          <Button variant="ghost" size="sm" onClick={() => navigate('/')} className="flex items-center gap-2 hover:text-primary">
             <ArrowLeft className="w-4 h-4" />
             Back to Home
           </Button>
@@ -72,11 +66,7 @@ const About = () => {
               <h1 className="text-5xl lg:text-6xl font-bold mb-6 text-primary">
                 About Southern Immigration
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
-                For over 15 years, Southern Immigration has been helping individuals and families 
-                achieve their immigration goals with professional expertise, personalized service, 
-                and unwavering dedication to success.
-              </p>
+              <p className="text-xl text-muted-foreground leading-relaxed">For over 3 years, Southern Immigration has been helping individuals and families achieve their immigration goals with professional expertise, personalized service, and unwavering dedication to success.</p>
             </div>
           </div>
         </section>
@@ -85,15 +75,13 @@ const About = () => {
         <section className="py-16 bg-primary/5">
           <div className="container mx-auto px-6 lg:px-8">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center">
+              {stats.map((stat, index) => <div key={index} className="text-center">
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
                     <stat.icon className="w-8 h-8 text-primary" />
                   </div>
                   <div className="text-3xl font-bold text-primary mb-2">{stat.number}</div>
                   <div className="text-muted-foreground">{stat.label}</div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </section>
@@ -116,12 +104,7 @@ const About = () => {
                   their dreams, no matter where they were born. Our dedicated team of immigration 
                   professionals combines deep legal expertise with genuine care for our clients' success.
                 </p>
-                <p className="mb-6">
-                  Founded in 2009, our firm has grown from a small practice to one of the most trusted 
-                  immigration service providers in the region. We've helped thousands of individuals 
-                  and families navigate complex immigration processes, from visa applications to 
-                  citizenship ceremonies.
-                </p>
+                <p className="mb-6">Founded in 2021, our firm has grown from a small practice to one of the most trusted immigration service providers in the region. We've helped thousands of individuals and families navigate complex immigration processes, from visa applications to citizenship ceremonies.</p>
                 <p>
                   What sets us apart is our commitment to personalized service. We take the time to 
                   understand each client's unique situation and goals, developing customized strategies 
@@ -143,15 +126,13 @@ const About = () => {
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
-              {values.map((value, index) => (
-                <div key={index} className="bg-card rounded-2xl p-8 shadow-sm border border-border/50">
+              {values.map((value, index) => <div key={index} className="bg-card rounded-2xl p-8 shadow-sm border border-border/50">
                   <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 mb-6">
                     <value.icon className="w-6 h-6 text-primary" />
                   </div>
                   <h3 className="text-xl font-semibold mb-4 text-primary">{value.title}</h3>
                   <p className="text-muted-foreground">{value.description}</p>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </section>
@@ -161,11 +142,7 @@ const About = () => {
         {/* Back to Home Button */}
         <section className="py-12">
           <div className="container mx-auto px-6 lg:px-8 text-center">
-            <Button
-              size="lg"
-              onClick={() => navigate('/')}
-              className="flex items-center gap-2 mx-auto"
-            >
+            <Button size="lg" onClick={() => navigate('/')} className="flex items-center gap-2 mx-auto">
               <Home className="w-5 h-5" />
               Back to Home
             </Button>
@@ -174,8 +151,6 @@ const About = () => {
       </main>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default About;
