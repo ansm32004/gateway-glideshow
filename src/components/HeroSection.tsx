@@ -12,9 +12,9 @@ const HeroSection = () => {
           {/* ✅ Logo */}
           <div className="flex justify-center mb-6">
             <img
-              src="/southern-immigration-logo.png"
+              src="/logo.png"
               alt="Southern Immigration Logo"
-              className="h-20 w-auto object-contain"
+              className="h-24 w-auto object-contain max-w-full"
             />
           </div>
 
