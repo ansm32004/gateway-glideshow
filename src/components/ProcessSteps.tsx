@@ -29,16 +29,16 @@ const steps = [
 
 const ProcessSteps = () => {
   return (
-    <section className="py-24 bg-gradient-to-b from-muted/30 to-background">
-      <div className="container mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16 slide-up">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+    <section className="py-12 sm:py-16 md:py-24 bg-gradient-to-b from-muted/30 to-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12 sm:mb-16 slide-up">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-4">
             Simple
             <span className="text-primary">
               {" "}4-Step Process
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
             Our streamlined immigration process ensures clarity and peace of mind 
             throughout your journey to a new life.
           </p>
@@ -52,7 +52,7 @@ const ProcessSteps = () => {
                 <div className="absolute left-6 top-20 w-0.5 h-32 bg-gradient-to-b from-primary/30 to-secondary/30 z-0"></div>
               )}
 
-              <div className={`relative flex items-start space-x-8 mb-12 slide-up stagger-${index + 1}`}>
+              <div className={`relative flex items-start space-x-4 sm:space-x-8 mb-8 sm:mb-12 slide-up stagger-${index + 1}`}>
                 {/* Step number */}
                 <div className="flex-shrink-0 relative z-10">
                   <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg">
@@ -62,7 +62,7 @@ const ProcessSteps = () => {
 
                 {/* Content */}
                 <div className="flex-1 group">
-                  <div className="bg-card rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 card-stack border border-border/50 hover:border-primary/20">
+                  <div className="bg-card rounded-3xl p-4 sm:p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 card-stack border border-border/50 hover:border-primary/20">
                     <div className="mb-4">
                       <h3 className="text-2xl font-bold group-hover:text-primary transition-colors duration-300">
                         {step.title}

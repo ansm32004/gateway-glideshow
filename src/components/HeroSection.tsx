@@ -28,33 +28,34 @@ const HeroSection = () => {
         <div className="text-center space-y-8 slide-up max-w-4xl mx-auto">
           
           {/* ✅ Logo */}
-          <div className="flex justify-center mb-6">
+          <div className="flex justify-center mb-4 md:mb-6">
             <img
               src="/logo.png"
               alt="Southern Immigration Logo"
-              className="h-40 w-auto object-contain max-w-full"
+              className="h-24 sm:h-32 md:h-40 w-auto object-contain max-w-full"
             />
           </div>
 
-          <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold leading-tight px-4">
             Your Journey to a
             <span className="text-primary"> New Future </span>
             Starts Here
           </h1>
           
-          <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto px-4">
             Expert immigration services to help you navigate the complex process
             of building your new life. Professional, reliable, and personalized
             support every step of the way.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center px-4">
             {/* Start Application Button */}
             <Dialog>
               <DialogTrigger asChild>
-                <Button variant="hero" size="lg" className="group">
-                  Start Your Application
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <Button variant="hero" size="lg" className="group w-full sm:w-auto">
+                  <span className="hidden sm:inline">Start Your Application</span>
+                  <span className="sm:hidden">Apply Now</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform ml-2" />
                 </Button>
               </DialogTrigger>
               <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
@@ -71,29 +72,30 @@ const HeroSection = () => {
             <Button
               variant="glass"
               size="lg"
-              className="group"
+              className="group w-full sm:w-auto"
               data-cal-namespace="30min"
               data-cal-link="southern-immigration-c8v0vs/30min"
               data-cal-config='{"layout":"month_view","theme":"light"}'
             >
-              Book Your Call
+              <span className="hidden sm:inline">Book Your Call</span>
+              <span className="sm:hidden">Book Call</span>
               <Calendar className="w-5 h-5 group-hover:scale-110 transition-transform ml-2" />
             </Button>
           </div>
 
           {/* ✅ Stats Section */}
-          <div className="grid grid-cols-3 gap-8 pt-12 max-w-lg mx-auto">
+          <div className="grid grid-cols-3 gap-4 sm:gap-8 pt-8 sm:pt-12 max-w-lg mx-auto px-4">
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary">1K+</div>
-              <div className="text-sm text-muted-foreground">Cases Approved</div>
+              <div className="text-2xl sm:text-3xl font-bold text-primary">1K+</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">Cases Approved</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-secondary">98%</div>
-              <div className="text-sm text-muted-foreground">Success Rate</div>
+              <div className="text-2xl sm:text-3xl font-bold text-secondary">98%</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">Success Rate</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-accent">3+</div>
-              <div className="text-sm text-muted-foreground">Years Experience</div>
+              <div className="text-2xl sm:text-3xl font-bold text-accent">3+</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">Years Experience</div>
             </div>
           </div>
         </div>

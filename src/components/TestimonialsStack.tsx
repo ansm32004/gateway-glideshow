@@ -66,21 +66,21 @@ const testimonials: Testimonial[] = [{
   image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face&auto=format"
 }];
 const TestimonialsStack = () => {
-  return <section className="py-24 bg-gradient-to-br from-primary/5 via-background to-secondary/5 overflow-hidden">
-      <div className="container mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16 slide-up">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+  return <section className="py-12 sm:py-16 md:py-24 bg-gradient-to-br from-primary/5 via-background to-secondary/5 overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12 sm:mb-16 slide-up">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-4">
             Success <span className="text-primary">Stories</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
             Real stories from real people who trusted us with their immigration journey. 
             Join thousands of satisfied clients who achieved their dreams.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center mb-12 sm:mb-16">
           <div className="relative slide-up">
-            <img src={successImage} alt="Happy clients celebrating immigration success with diverse group holding passports" className="w-full h-[500px] object-cover rounded-3xl shadow-2xl" />
+            <img src={successImage} alt="Happy clients celebrating immigration success with diverse group holding passports" className="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover rounded-3xl shadow-2xl" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-3xl" />
             <div className="absolute -bottom-6 -left-6 bg-white/95 backdrop-blur-sm p-6 rounded-2xl shadow-xl card-stack">
               <div className="text-center">
@@ -121,8 +121,8 @@ const TestimonialsStack = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => <div key={index} className={`relative bg-card rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 card-stack slide-up stagger-${index % 3 + 1} border border-border/50 hover:border-primary/20 group`}>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {testimonials.map((testimonial, index) => <div key={index} className={`relative bg-card rounded-3xl p-4 sm:p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 card-stack slide-up stagger-${index % 3 + 1} border border-border/50 hover:border-primary/20 group`}>
               <div className="mb-6">
                 <Quote className="w-8 h-8 text-primary/30 group-hover:text-primary/50 transition-colors duration-300" />
               </div>

@@ -15,10 +15,10 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50">
-      <div className="bg-gray-100 backdrop-blur-lg border border-gray-300 rounded-full px-12 py-4 shadow-lg">
+    <nav className="fixed top-2 sm:top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] sm:w-auto">
+      <div className="bg-gray-100 backdrop-blur-lg border border-gray-300 rounded-full px-4 sm:px-8 md:px-12 py-3 sm:py-4 shadow-lg">
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-10 text-lg font-medium">
+        <div className="hidden md:flex items-center space-x-6 lg:space-x-10 text-sm lg:text-lg font-medium">
           {navItems.map((item) => (
             <a
               key={item.name}
@@ -44,7 +44,7 @@ const Navigation = () => {
               Contact
             </button>
             {isContactOpen && (
-              <div className="absolute top-12 right-0 bg-white border border-gray-200 shadow-md rounded-lg w-72">
+              <div className="absolute top-12 right-0 bg-white border border-gray-200 shadow-md rounded-lg w-64 lg:w-72 z-50">
                 <a
                   href="mailto:southernimmigration.sgnr@gmail.com"
                   className="flex items-center px-4 py-3 hover:bg-gray-100 text-sm text-gray-700"
@@ -78,7 +78,7 @@ const Navigation = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden mt-3 py-4 border border-gray-300 bg-white/95 backdrop-blur-sm rounded-lg shadow-md text-center">
+        <div className="md:hidden mt-3 py-4 border border-gray-300 bg-white/95 backdrop-blur-sm rounded-lg shadow-md text-center mx-2">
           <div className="space-y-4">
             {navItems.map((item) => (
               <a
