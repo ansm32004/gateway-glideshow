@@ -1,10 +1,13 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Users, Award, Clock, Globe, Heart, Scale, ArrowLeft, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const About = () => {
+  const navigate = useNavigate();
+  
   useEffect(() => {
     document.title = "About Us - Southern Immigration | Expert Immigration Services";
     
@@ -54,7 +57,7 @@ const About = () => {
           <Button
             variant="ghost"
             size="sm"
-            onClick={() => window.location.href = '/'}
+            onClick={() => navigate('/')}
             className="flex items-center gap-2 hover:text-primary"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -187,7 +190,7 @@ const About = () => {
           <div className="container mx-auto px-6 lg:px-8 text-center">
             <Button
               size="lg"
-              onClick={() => window.location.href = '/'}
+              onClick={() => navigate('/')}
               className="flex items-center gap-2 mx-auto"
             >
               <Home className="w-5 h-5" />
