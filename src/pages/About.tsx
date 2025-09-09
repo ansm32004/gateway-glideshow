@@ -18,9 +18,9 @@ const About = () => {
   }, []);
 
   const stats = [
-    { number: "15+", label: "Years Experience", icon: Clock },
+    { number: "3+", label: "Years Experience", icon: Clock },
     { number: "98%", label: "Success Rate", icon: Award },
-    { number: "5000+", label: "Cases Approved", icon: Users },
+    { number: "1000+", label: "Cases Approved", icon: Users },
     { number: "50+", label: "Countries Served", icon: Globe }
   ];
 
@@ -156,34 +156,7 @@ const About = () => {
           </div>
         </section>
 
-        {/* Team Section */}
-        <section className="py-20">
-          <div className="container mx-auto px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold mb-6 text-primary">Meet Our Team</h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Our experienced professionals are dedicated to providing you with the highest 
-                quality immigration services and support.
-              </p>
-            </div>
-
-            <div className="bg-card rounded-2xl p-8 shadow-sm border border-border/50 text-center">
-              <div className="max-w-2xl mx-auto">
-                <h3 className="text-2xl font-semibold mb-4 text-primary">Experienced Immigration Professionals</h3>
-                <p className="text-muted-foreground mb-6">
-                  Our team consists of licensed immigration consultants, lawyers, and support staff 
-                  with extensive experience in all areas of immigration law. We maintain the highest 
-                  professional standards and stay current with changing immigration policies and procedures.
-                </p>
-                <p className="text-muted-foreground">
-                  Every team member is committed to providing personalized attention and achieving 
-                  the best possible outcomes for our clients. We pride ourselves on our attention 
-                  to detail, clear communication, and dedication to excellence.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+       
 
         {/* Back to Home Button */}
         <section className="py-12">
